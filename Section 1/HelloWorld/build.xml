@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Mark file's XML version-->
+<project name="HelloWorld" default="test" basedir=".">
+<!--Declear a project, whose name is HelloWorld, and the default instruction is 'run'-->
+    <property name="src" value="src"/>
+    <property name="dest" value="dest"/>
+    <property name="test" value="test"/>
+    <!--Set functional folder and path of target .jar (packed java program)-->
+
+    <property name="full-compile" value="true" />
+    <!--Full compile-->
+
+    <path id="classpath.base"/>
+    <path id="classpath.test">
+      <pathelement location="lib/junit.jar" />
+      <pathelement location="${test}" />
+      <pathelement location="${src}" />
+      <path refid="classpath.base" />
+   </path>    
+
+    <target name="clean">
+        <delete verbose="${full-compile}">
+            <fileset dir="${test}" includes="**/*.class" />
+        </delete>
+        <!--Delete folders of generated files-->
+    </target>
+    <!--Set the behaviors of clean instruction-->
+
+    <target name="compile" depends="clean">
+      <javac srcdir="${src}" destdir="${test}" verbose="${full-compile}">
+         <classpath refid="classpath.test"/>
+      </javac>
+   </target>
+   <!--Special compiling for test-->
+
+    <target name="test" depends="compile">
+      <junit>
+         <classpath refid="classpath.test" />
+         <formatter type="brief" usefile="false" />
+         <test name="TestHelloWorld" />
+      </junit>
+   </target>
+   <!--Test!-->
+  
+</project>
