@@ -6,7 +6,6 @@ public class Calculator {
     private JFrame mainframe;
     // Mainframe
     private JTextField myNumber1;
-    private JLabel myOperator;
     private JTextField myNumber2;
     private JLabel myResult;
     // blocks in line 1
@@ -37,6 +36,7 @@ public class Calculator {
 
     private void prepareGUI() {
         JLabel myEquation;
+        JLabel myOperator;
         // Editable components in line 1
 
         JButton myAdd;
