@@ -25,7 +25,12 @@ public class Calculator {
 
     public static void main(String[] args) {
         Calculator calculator = new Calculator();
+        calculator.showGUI();
     } // Construct instance
+
+    private void showGUI() {
+      mainframe.setVisible(true);
+    }
 
     private void prepareGUI() {
         mainframe = new JFrame("Calculator");
@@ -73,7 +78,7 @@ public class Calculator {
         });
         myOK.addActionListener(new ActionListener() {
           public void actionPerformed(ActionEvent e) {     
-            Operations();     
+            operations();     
           }
         });
         // Bind Listeners to JButtons
@@ -92,12 +97,9 @@ public class Calculator {
         mainframe.add(myDiv);
         mainframe.add(myOK);
         // Add blocks into the Grid
-
-        mainframe.setVisible(true);
-        // Show our window
     }
 
-    public void Operations() {
+    public void operations() {
       Double number1 = 0.0, number2 = 0.0, result; // Declare and initialize doubles
       try {
           number1 = Double.parseDouble(myNumber1.getText());
@@ -121,8 +123,9 @@ public class Calculator {
           myResult.setText(result.toString());
           break;
         case "/":
-          if (number2 == 0)
+          if (number2 == 0){
             myResult.setText("Divided by 0!");
+          }
           else {
             result = number1 / number2;
             myResult.setText(result.toString());
