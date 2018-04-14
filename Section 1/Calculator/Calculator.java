@@ -9,10 +9,10 @@ public class Calculator {
     private JTextField myNumber2;
     // blocks in line 1
 
-    private static final int Width = 500;
-    private static final int Height = 200;
-    private static final int Col = 5;
-    private static final int Row = 2;
+    private static final int WIdth = 500;
+    private static final int HEight = 200;
+    private static final int COl = 5;
+    private static final int ROw = 2;
     // Can you stop telling me these are magic number?!
 
 
@@ -47,8 +47,8 @@ public class Calculator {
         // Const blocks in line 2
 
         mainframe = new JFrame("Calculator");
-        mainframe.setSize(Width, Height);
-        mainframe.setLayout(new GridLayout(Row, Col));
+        mainframe.setSize(WIdth, HEight);
+        mainframe.setLayout(new GridLayout(ROw, COl));
         // Set size and layout of mainframe
 
         myNumber1 = new JTextField();
