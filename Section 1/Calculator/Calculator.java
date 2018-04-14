@@ -32,7 +32,7 @@ public class Calculator {
       mainframe.setVisible(true);
     }
 
-    private void prepareGUI() {
+    private final void prepareGUI() {
         mainframe = new JFrame("Calculator");
         mainframe.setSize(500, 200);
         mainframe.setLayout(new GridLayout(2, 5));
@@ -99,7 +99,7 @@ public class Calculator {
         // Add blocks into the Grid
     }
 
-    public void operations() {
+    public final void operations() {
       Double number1 = 0.0, number2 = 0.0, result; // Declare and initialize doubles
       try {
           number1 = Double.parseDouble(myNumber1.getText());
