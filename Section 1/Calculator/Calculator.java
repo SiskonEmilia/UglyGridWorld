@@ -4,35 +4,41 @@ import java.awt.event.*;
 
 public class Calculator {
     private JFrame mainframe;
-
+    // Mainframe
     private JTextField myNumber1;
-    private JLabel myOperator;
     private JTextField myNumber2;
-    private JLabel myEquation;
-    private JLabel myResult;
     // blocks in line 1
 
-    private JButton myAdd;
-    private JButton myMinus;
-    private JButton myTimes;
-    private JButton myDiv;
-    private JButton myOK;
-    // blocks in line 2
-
     public Calculator () {
-        prepareGUI(); // Construct GUI
-    } // Constructor
+        prepareGUI(); 
+        // Construct GUI
+    } 
+    // Constructor
 
     public static void main(String[] args) {
         Calculator calculator = new Calculator();
         calculator.showGUI();
-    } // Construct instance
+    } 
+    // Construct instance
 
     private void showGUI() {
       mainframe.setVisible(true);
     }
+    // Show the window
 
     private final void prepareGUI() {
+        JLabel myEquation;
+        JLabel myResult;
+        JLabel myOperator;
+        // Editable components in line 1
+
+        JButton myAdd;
+        JButton myMinus;
+        JButton myTimes;
+        JButton myDiv;
+        JButton myOK;
+        // Const blocks in line 2
+
         mainframe = new JFrame("Calculator");
         mainframe.setSize(500, 200);
         mainframe.setLayout(new GridLayout(2, 5));
@@ -100,14 +106,16 @@ public class Calculator {
     }
 
     public final void operations() {
-      Double number1 = 0.0, number2 = 0.0, result; // Declare and initialize doubles
+      Double number1 = 0.0, number2 = 0.0, result; 
+      // Declare and initialize doubles
       try {
           number1 = Double.parseDouble(myNumber1.getText());
           number2 = Double.parseDouble(myNumber2.getText());
       } catch(NumberFormatException e) {
         myResult.setText("Invalid Format!");
         return;
-      } // Parse numbers in the JTextFields. If not valid format, sent messages.
+      } 
+      // Parse numbers in the JTextFields. If not valid format, sent messages.
 
       switch(myOperator.getText()) {
         case "+":
@@ -135,5 +143,6 @@ public class Calculator {
           myResult.setText("No operator!");
           break;
       }
+      // Do operations due to the operator
     }
 }
