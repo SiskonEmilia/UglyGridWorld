@@ -26,7 +26,7 @@ public class Calculator {
     }
     // Show the window
 
-    private final void prepareGUI() {
+    private void prepareGUI() {
         JLabel myEquation;
         JLabel myResult;
         JLabel myOperator;
@@ -39,9 +39,13 @@ public class Calculator {
         JButton myOK;
         // Const blocks in line 2
 
+        int width = 500, height = 200,
+          col = 5, row = 2;
+        // To avoid magic numbers
+
         mainframe = new JFrame("Calculator");
-        mainframe.setSize(500, 200);
-        mainframe.setLayout(new GridLayout(2, 5));
+        mainframe.setSize(width, height);
+        mainframe.setLayout(new GridLayout(row, col));
         // Set size and layout of mainframe
 
         myNumber1 = new JTextField();
