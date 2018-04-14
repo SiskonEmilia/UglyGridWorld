@@ -9,6 +9,13 @@ public class Calculator {
     private JTextField myNumber2;
     // blocks in line 1
 
+    private static final int width = 500;
+    private static final int height = 200;
+    private static final int col = 5;
+    private static final int row = 2;
+    // Can you stop telling me these are magic number?!
+
+
     public Calculator () {
         prepareGUI(); 
         // Construct GUI
@@ -38,10 +45,6 @@ public class Calculator {
         JButton myDiv;
         JButton myOK;
         // Const blocks in line 2
-
-        int width = 500, height = 200,
-          col = 5, row = 2;
-        // To avoid magic numbers
 
         mainframe = new JFrame("Calculator");
         mainframe.setSize(width, height);
