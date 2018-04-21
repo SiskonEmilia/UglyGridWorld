@@ -24,8 +24,9 @@ public class BlusterCritter extends Critter {
       for (int t = 0; t < EDGE; ++t) {
         if (i != -OFFSET || t != -OFFSET) {
           if (grid.isValid(new Location(row + i, col + t))) {
-            if (grid.get(new Location(row + i, col + t)) != null)
+            if (grid.get(new Location(row + i, col + t)) != null) {
               list.add(grid.get(new Location(row + i, col + t)) );
+            }
           }
         }
       }

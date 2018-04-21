@@ -28,6 +28,9 @@ import java.awt.Color;
  */
 public class ChameleonRunner
 {
+
+    private ChameleonRunner() {}
+
     public static void main(String[] args)
     {
         ActorWorld world = new ActorWorld();
