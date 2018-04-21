@@ -66,9 +66,12 @@ public class SparseBoundedGrid extends AbstractGrid<Object> {
   public Object put(Location loc, Object obj) {
     OccupantInCol res = getNode(loc);
 
-    if (res == null) {
-      occupantMap.get(loc.getRow()).addLast(new OccupantInCol(obj, loc.getCol()));
+    if (res != null) {
+      remove(loc);
     }
+    
+    occupantMap.get(loc.getRow()).addLast(new OccupantInCol(obj, loc.getCol()));
+
 
     return res;
   }
