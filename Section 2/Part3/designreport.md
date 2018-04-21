@@ -2,7 +2,7 @@
 
 1. What will a jumper do if the location in front of it is empty, but the location two cells in front contains a flower or a rock?
 
-    The jumper will trun around untill it is not going to jump onto an empty cell.
+    The jumper will not stop trunning around untill is not going to jump onto an empty cell.
 
 1. What will a jumper do if the location two cells in front of the jumper is out of the grid?
 

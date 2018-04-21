@@ -1,19 +1,113 @@
 import static org.junit.Assert.*; // Junit components
+import info.gridworld.actor.ActorWorld;
+import info.gridworld.grid.Location;
+import info.gridworld.actor.Bug;
+import info.gridworld.actor.Rock;
 
-public class TestHelloWorld {
-    PrintStream outstream = null; // Used to backup the standard output stream
-    ByteArrayOutputStream mybytes = null; // Used to store the captured data
-    HelloWorld helloworld; // Used to create an instace of our HelloWorld
+public class TestJumper {
 
-    @org.junit.Before // prepare for test
-    public void initialise() throws Exception {
+  /* Test 1: Rock and Flower */
+  /* This test is uesd to test
+     the case 1 in Design Report */
+  @org.junit.Test
+  public void blockTest() throws Exception {
+    ActorWorld world = new ActorWorld();
+    Jumper alice = new Jumper();
+    Jumper emilia = new Jumper();
+    Bug flowerMaker = new Bug();
+    Rock rock = new Rock();
 
-    }
+    world.add(new Location(7, 8), alice);
+    world.add(new Location(7, 6), emilia);
+    world.add(new Location(5, 8), flowerMaker);
+    world.add(new Location(5, 6), rock);
 
-    @org.junit.Test // Testing
-    public void testResult() throws Exception {
-        helloworld = new HelloWorld(); // Instantiate our class
-        String str = new String("Hello,World\n"); // Expected output
-        assertEquals(str, mybytes.toString()); // Assert: str == output
-    }
+    flowerMaker.act(); // Produce a flower
+    alice.act();
+    emilia.act();
+
+    assertEquals(alice.getLocation().getRow(), 7);
+    assertEquals(alice.getLocation().getCol(), 8);
+    assertEquals(alice.getDirection(), 45); 
+    /* Alice should trun around and should not move */
+
+    assertEquals(emilia.getLocation().getRow(), 7);
+    assertEquals(emilia.getLocation().getCol(), 6);
+    assertEquals(emilia.getDirection(), 45); 
+    /* Emilia should trun around and should not move */
+  }
+
+  /*Test 2*/
+  @org.junit.Test
+  public void rangeTest() throws Exception {
+    ActorWorld world = new ActorWorld();
+    Jumper alice = new Jumper();
+
+    world.add(new Location(1, 0), alice);
+
+    alice.act();
+
+    assertEquals(alice.getLocation().getRow(), 1);
+    assertEquals(alice.getLocation().getCol(), 0);
+    assertEquals(alice.getDirection(), 45); 
+    /* Alice should trun around and should not move */
+  }
+
+  /*Test 3*/
+  @org.junit.Test
+  public void edgeTest() throws Exception {
+    ActorWorld world = new ActorWorld();
+    Jumper alice = new Jumper();
+
+    world.add(new Location(0, 0), alice);
+
+    alice.act();
+
+    assertEquals(alice.getLocation().getRow(), 0);
+    assertEquals(alice.getLocation().getCol(), 0);
+    assertEquals(alice.getDirection(), 45); 
+    /* Alice should trun around and should not move */
+  }
+
+  /*Test 4*/
+  @org.junit.Test
+  public void actorTest() throws Exception {
+    ActorWorld world = new ActorWorld();
+    Jumper alice = new Jumper();
+    Bug bug = new Bug();
+
+    world.add(new Location(4, 0), alice);
+    world.add(new Location(2, 0), bug);
+    alice.act();
+
+    assertEquals(alice.getLocation().getRow(), 4);
+    assertEquals(alice.getLocation().getCol(), 0);
+    assertEquals(alice.getDirection(), 45); 
+    /* Alice should trun around and should not move */
+  }
+
+  /*Test 5*/
+  @org.junit.Test
+  public void meetTest() throws Exception {
+    ActorWorld world = new ActorWorld();
+    Jumper alice = new Jumper();
+    Jumper emilia = new Jumper();
+    world.add(new Location(7, 8), alice);
+    world.add(new Location(5, 8), emilia);
+    emilia.setDirection(180); // Makes them face to face
+
+    alice.act();
+    emilia.act();
+
+
+    assertEquals(alice.getLocation().getRow(), 7);
+    assertEquals(alice.getLocation().getCol(), 8);
+    assertEquals(alice.getDirection(), 45); 
+    /* Alice should trun around and should not move */
+
+    assertEquals(emilia.getLocation().getRow(), 5);
+    assertEquals(emilia.getLocation().getCol(), 8);
+    assertEquals(emilia.getDirection(), 180 + 45); 
+    /* Emilia should trun around and should not move */
+  }
 }
