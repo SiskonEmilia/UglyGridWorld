@@ -37,7 +37,10 @@ public class DancingBug extends Bug
     {
         steps = 0;
         shouldDance = true;
-        this.dance = dance;
+        this.dance = new int[dance.length];
+        for (int i = 0; i < dance.length; ++i) {
+            this.dance[i] = dance[i];
+        }
     }
 
     /**
