@@ -6,7 +6,7 @@ public class Jumper extends Actor {
   private static final int FOURTYFIVE = 45;
   private static final int CIRCLE = 360;
 
-  Jumper() { }
+  public Jumper() { }
 
   public void act() {
     if (canMove()) {

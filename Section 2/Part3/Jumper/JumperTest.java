@@ -11,7 +11,7 @@ public class JumperTest {
      that is our jumpers able
      to jump */
   @org.junit.Test
-  public void jumpTest() throws Exception {
+  public void jumpTest() {
     ActorWorld world = new ActorWorld();
     Jumper alice = new Jumper();
 
@@ -28,7 +28,7 @@ public class JumperTest {
   /* This test is uesd to test
      the case 1 in Design Report */
   @org.junit.Test
-  public void blockTest() throws Exception {
+  public void blockTest() {
     ActorWorld world = new ActorWorld();
     Jumper alice = new Jumper();
     Jumper emilia = new Jumper();
@@ -60,7 +60,7 @@ public class JumperTest {
      wether jumper jump out
      of the Grid or not */
   @org.junit.Test
-  public void rangeTest() throws Exception {
+  public void rangeTest() {
     ActorWorld world = new ActorWorld();
     Jumper alice = new Jumper();
 
@@ -79,7 +79,7 @@ public class JumperTest {
      wether jumper will across
      the edge while facing it */
   @org.junit.Test
-  public void edgeTest() throws Exception {
+  public void edgeTest() {
     ActorWorld world = new ActorWorld();
     Jumper alice = new Jumper();
 
@@ -98,7 +98,7 @@ public class JumperTest {
      wether jumper will trun
      while blocked by actors */
   @org.junit.Test
-  public void actorTest() throws Exception {
+  public void actorTest() {
     ActorWorld world = new ActorWorld();
     Jumper alice = new Jumper();
     Bug bug = new Bug();
@@ -118,7 +118,7 @@ public class JumperTest {
      what will happen if two
      jumper meets together */
   @org.junit.Test
-  public void meetTest() throws Exception {
+  public void meetTest() {
     ActorWorld world = new ActorWorld();
     Jumper alice = new Jumper();
     Jumper emilia = new Jumper();

@@ -29,6 +29,7 @@ import java.awt.Color;
  */
 public class JumperRunner
 {
+    private JumperRunner() {}
 
     public static void main(String[] args)
     {
