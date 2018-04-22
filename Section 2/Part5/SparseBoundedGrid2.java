@@ -5,9 +5,6 @@ import java.util.HashMap;
 
 public class SparseBoundedGrid2 extends AbstractGrid<Object> {
 
-  // private static final int ONE = 1;
-  private static final int ZERO = 0;
-
   private int cols;
   private int rows;
   private HashMap<Location, Object> map;
