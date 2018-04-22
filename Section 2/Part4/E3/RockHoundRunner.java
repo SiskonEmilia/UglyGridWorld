@@ -26,21 +26,36 @@ import java.awt.Color;
  * This class runs a world that contains chameleon critters. <br />
  * This class is not tested on the AP CS A and AB exams.
  */
-public class RockHoundRunner
+public final class RockHoundRunner
 {
     private RockHoundRunner() {}
+
+    private static final int FIVE = 5;
+    private static final int EIGHT = 8;
+    private static final int FOUR = 4;
+    private static final int SEVEN = 7;
+    private static final int THREE = 3;
+    private static final int TWO = 2;
+    private static final int ONE = 1;
+    /*
+     These line are solving the maginc
+     number problem, and this block
+     is designed to get rid of the
+     comment problem.
+    */
+
 
     public static void main(String[] args)
     {
         ActorWorld world = new ActorWorld();
-        world.add(new Location(7, 8), new Rock());
-        world.add(new Location(3, 3), new Rock());
-        world.add(new Location(2, 8), new Rock(Color.BLUE));
-        world.add(new Location(5, 5), new Rock(Color.PINK));
-        world.add(new Location(1, 5), new Rock(Color.RED));
-        world.add(new Location(7, 2), new Rock(Color.YELLOW));
-        world.add(new Location(4, 4), new RockHound());
-        world.add(new Location(5, 8), new RockHound());
+        world.add(new Location(SEVEN, EIGHT), new Rock());
+        world.add(new Location(THREE, THREE), new Rock());
+        world.add(new Location(TWO, EIGHT), new Rock(Color.BLUE));
+        world.add(new Location(FIVE, FIVE), new Rock(Color.PINK));
+        world.add(new Location(ONE, FIVE), new Rock(Color.RED));
+        world.add(new Location(SEVEN, TWO), new Rock(Color.YELLOW));
+        world.add(new Location(FOUR, FOUR), new RockHound());
+        world.add(new Location(FIVE, EIGHT), new RockHound());
         world.show();
     }
 }

@@ -32,6 +32,11 @@ public class BlusterCritterRunner
 
     public static void main(String[] args)
     {
+        /* 
+        Notified from the original one
+        Simply change the Chamelon into
+        a BlisterCritter
+        */
         ActorWorld world = new ActorWorld();
         world.add(new Location(7, 8), new Rock());
         world.add(new Location(3, 3), new Rock());
