@@ -6,7 +6,7 @@ The source code for the BoxBug class can be found in the boxBug directory.
 
 1. What is the role of the instance variable sideLength?
 
-    It serves as the max length that a BoxBug can go to the same direction while it does not `turn()`.
+    **Answer:** It serves as the max length that a BoxBug can go to the same direction while it does not `turn()`.
 
     ```java
     // @file: projects/boxBug/BoxBug.java
@@ -27,7 +27,7 @@ The source code for the BoxBug class can be found in the boxBug directory.
 
 1. What is the role of the instance variable steps?
 
-    It records the number of steps that the BoxBug continuously takes to go forward.
+    **Answer:** It records the number of steps that the BoxBug continuously takes to go forward.
 
     ```java
     // @file: projects/boxBug/BoxBug.java
@@ -48,7 +48,7 @@ The source code for the BoxBug class can be found in the boxBug directory.
 
 1. Why is the turn method called twice when steps becomes equal to sideLength?
 
-    Because calling `turn()` for one time means 45 degrees of rotation, and what the designer wants is a rotation of 90 degrees.
+    **Answer:** Because calling `turn()` for one time means 45 degrees of rotation, and what the designer wants is a rotation of 90 degrees.
 
     ```java
     // @file: info/gridworld/actor/Bug.java
@@ -62,7 +62,7 @@ The source code for the BoxBug class can be found in the boxBug directory.
 
 1. Why can the move method be called in the BoxBug class when there is no move method in the BoxBug code?
 
-    Because BoxBug inherits it from Bug.
+    **Answer:** Because BoxBug inherits it from Bug.
 
     ```java
     // @file: info/gridworld/actor/Bug.java
@@ -76,7 +76,7 @@ The source code for the BoxBug class can be found in the boxBug directory.
 
 1. After a BoxBug is constructed, will the size of its square pattern always be the same? Why or why not?
 
-    Nope. If it cannot move in some cases, the size of its square pattern might get smaller.
+    **Answer:** Nope. If it cannot move in some cases, the size of its square pattern might get smaller.
 
     ```java
     // @file: projects/boxBug/BoxBug.java
@@ -97,7 +97,7 @@ The source code for the BoxBug class can be found in the boxBug directory.
 
 1. Can the path a BoxBug travels ever change? Why or why not?
 
-    Yes. If it cannot move in some cases, the path of its travelling might change.
+    **Answer:** Yes. If it cannot move in some cases, the path of its travelling might change.
 
     ```java
     // @file: projects/boxBug/BoxBug.java
@@ -118,7 +118,7 @@ The source code for the BoxBug class can be found in the boxBug directory.
 
 1. When will the value of steps be zero?
 
-    At the time it is blocked by something or its steps reaches the `sideLength`. Also, when it is constructed, the value of steps is also zero.
+    **Answer:** At the time it is blocked by something or its steps reaches the `sideLength`. Also, when it is constructed, the value of steps is also zero.
 
     ```java
     // @file: projects/boxBug/BoxBug.java
