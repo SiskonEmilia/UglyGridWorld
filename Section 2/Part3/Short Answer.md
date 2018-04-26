@@ -219,7 +219,7 @@ Location loc2 = new Location(3, 4);
 
 1. Grid contains method declarations, but no code is supplied in the methods. Why? Where can you find the implementations of these methods?
 
-    In classes that implements the interface, like BoundedGrid.java and UnboundedGrid.java.
+    **Answer:** In classes that implements the interface, like BoundedGrid.java and UnboundedGrid.java.
 
     ```java
     // @file: info/gridworld/Grid.java
@@ -236,7 +236,7 @@ Location loc2 = new Location(3, 4);
 
 1. All methods that return multiple objects return them in an ArrayList. Do you think it would be a better design to return the objects in an array? Explain your answer.
 
-    No. Although Array is more effective than ArrayList, it is a fixed-size data strcture. And before we finishing executing these methods, we cannot ensure the size of it. Thus ArrayList is the one we have to choose. But there's still somewhere that we can optimize the code. We're supposed to change the return type to IList interface, by doing which can we makes our code fit the coding rules of JAVA better.
+    **Answer:** No. Although Array is more effective than ArrayList, it is a fixed-size data strcture. And before we finishing executing these methods, we cannot ensure the size of it. Thus ArrayList is the one we have to choose. But there's still somewhere that we can optimize the code. We're supposed to change the return type to IList interface, by doing which can we makes our code fit the coding rules of JAVA better.
 
     ```java
     // @file: info/gridworld/grid/Grid.java

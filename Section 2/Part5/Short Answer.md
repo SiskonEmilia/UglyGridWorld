@@ -300,6 +300,7 @@ The source code for the UnboundedGrid class is in Appendix D.
     // @line: 77
     if (get(loc) != null) // As an example
     ```
+
 1. What is the average time complexity (Big-Oh) for the three methods: get, put, and remove? What would it be if a TreeMap were used instead of a HashMap?
 
     **Answer:** O(1). O(log n), in which n is the number of objects in the grid.
@@ -359,3 +360,22 @@ The source code for the UnboundedGrid class is in Appendix D.
     // @file: DataStructure
     // @line: I don't know
     ```
+
+## Coding Exercise
+
+1. Consider using a HashMap or TreeMap to implement the SparseBoundedGrid. How could you use the UnboundedGrid class to accomplish this task? Which methods of UnboundedGrid could be used without change? Fill in the following chart to compare the expected Big-Oh efficiencies for each implementation of the SparseBoundedGrid. Let r = number of rows, c = number of columns, and n = number of occupied locations
+
+    Methods|SparseGridNode version|LinkedList<OccupantInCol> version|HashMap version|TreeMap versio
+    -|-|-|-|-
+    getNeighbors|O(c)|O(c)|O(1)|O(log n)
+    getEmptyAdjacentLocations|O(c)|O(c)|O(1)|O(log n)
+    getOccupiedAdjacentLocations|O(c)|O(c)|O(1)|O(log n)
+    getOccupiedLocations|O(n)|O(n)|O(n)|O(n)
+    get|O(c)|O(c)|O(1)|O(log n)
+    put|O(c)|O(c)|O(1)|O(log n)
+    remove|O(c)|O(c)|O(1)|O(log n)
+
+1. Consider an implementation of an unbounded grid in which all valid locations have non-negative row and column values. The constructor allocates a 16 x 16 array. When a call is made to the put method with a row or column index that is outside the current array bounds, double both array bounds until they are large enough, construct a new square array with those bounds, and place the existing occupants into the new array. Implement the methods specified by the Grid interface using this data structure. What is the Big-Oh efficiency of the get method? What is the efficiency of the put method when the row and column index values are within the current array bounds? What is the efficiency when the array needs to be resized?
+
+    - get: O(1)
+    - put: O(1), O(original size * original size)

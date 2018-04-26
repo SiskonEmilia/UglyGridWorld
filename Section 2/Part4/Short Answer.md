@@ -369,7 +369,7 @@ The source code for the ChameleonCritter class is in the critters directory
 
 1. Why don’t the CrabCritter objects eat each other?
 
-    **Answer:** Beacause a Critter won't eat a Critter due to the original implemention of `processActors(ArrayList<Actor>` in the base class Critter.
+    **Answer:** Beacause a Critter won't eat a Critter due to the original implemention of `processActors(ArrayList<Actor>)` in the base class Critter.
 
     ```java
     // @file: info/gridworld/actor/Critter.java
