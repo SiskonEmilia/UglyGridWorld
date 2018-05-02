@@ -33,7 +33,7 @@
    </target>
 
    <target name="compile" depends="props">
-      <javac srcdir="${framework.dir}" destdir="${build.dir}" debug="true" target="1.5">
+      <javac srcdir="${framework.dir}" destdir="${build.dir}" debug="true" target="1.6">
          <compilerarg value="-Xlint:unchecked"/>
       </javac>
    </target>
