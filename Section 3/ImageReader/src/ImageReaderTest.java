@@ -33,7 +33,7 @@ public class ImageReaderTest {
   }
 
   @Test
-  public void readTest() throws IOException, FileNotFoundException {
+  public void readTest() throws IOException {
     Image image1 = null, image2 = null;
 
     image1 = imageioer.myRead(TESTBMP);
@@ -68,7 +68,7 @@ public class ImageReaderTest {
     // Is every pixel the same?
   }
 
-  private boolean testImages(String target, int type) throws IOException, FileNotFoundException {
+  private boolean testImages(String target, int type) throws IOException {
     Image image = null;
 
     image = imageioer.myRead(TESTBMP);
@@ -108,22 +108,22 @@ public class ImageReaderTest {
   }
 
   @Test
-  public void channelRTest() throws IOException, FileNotFoundException {  
+  public void channelRTest() throws IOException {  
     assertEquals(testImages("../test/goal/1_red_goal.bmp", 0), true);
   }
 
   @Test
-  public void channelGTest() throws IOException, FileNotFoundException {
+  public void channelGTest() throws IOException {
     assertEquals(testImages("../test/goal/1_green_goal.bmp", 1), true);
   }
 
   @Test
-  public void channelBTest() throws IOException, FileNotFoundException {
+  public void channelBTest() throws IOException {
     assertEquals(testImages("../test/goal/1_blue_goal.bmp", 2), true);
   }
 
   @Test
-  public void grayTest() throws IOException, FileNotFoundException {
+  public void grayTest() throws IOException {
     assertEquals(testImages("../test/goal/1_gray_goal.bmp", 3), true);
   }
 }
