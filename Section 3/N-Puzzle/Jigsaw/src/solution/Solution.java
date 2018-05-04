@@ -45,8 +45,6 @@ public class Solution extends Jigsaw {
 			if (node.equals(eNode)) {
 				this.currentJNode = node;
 				getPath();
-				System.out.println("Solution Path: ");
-        System.out.println(this.getSolutionPath());
 				return true;
 			}
 
@@ -61,7 +59,6 @@ public class Solution extends Jigsaw {
 				}
 			}
 		}
-		System.out.println("Failed! No solution!");
 		return false;
 	}
 
@@ -75,8 +72,8 @@ public class Solution extends Jigsaw {
 	 */
 	public void estimateValue(JigsawNode jNode) {
 		int s = 0; // 后续节点不正确的数码个数
-		int Mdistance = 0;
-		double Odistance = 0;
+		int mDistance = 0;
+		double oDistance = 0;
 		int dimension = JigsawNode.getDimension();
 		int nodes[] = new int[dimension * dimension + 1];
 
@@ -112,13 +109,12 @@ public class Solution extends Jigsaw {
 				tarCol = (i - 1) % dimension;
 				tarRow = (i - 1) / dimension;
 
-				Mdistance += Math.abs(tarCol - curCol) + Math.abs(tarRow - curRow);
-				Odistance += Math.pow(tarCol - curCol, 2) + Math.pow(tarRow - curRow, 2);
+				mDistance += Math.abs(tarCol - curCol) + Math.abs(tarRow - curRow);
+				oDistance += Math.pow(tarCol - curCol, 2) + Math.pow(tarRow - curRow, 2);
 			}
 		}
 
 		++tempratuer;
-		jNode.setEstimatedValue((int)(7 * s + 6 * Mdistance + 3 * Odistance + Math.random() * 5000 / (500 + tempratuer)));
-		// jNode.setEstimatedValue((int)Odistance + 1);
+		jNode.setEstimatedValue((int)(7 * s + 6 * mDistance + 3 * oDistance + Math.random() * 5000 / (500 + tempratuer)));
 	}
 }
