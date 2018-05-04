@@ -21,18 +21,18 @@ public class ImplementImageIO implements IImageIO {
 
   private static final int BM_HEAD_LENGTH = 14;
   private static final int BM_INFO_LENGTH = 40;
-  private static final int BM_LENGTH_TWO = 2;
-  private static final int BM_LENGTH_FOUR = 4;
 
   private static final int BM_TWOFIVESIC_COLOR = 8;
   private static final int BM_TRUE_COLOR = 24;
+
+  private String erromsg = "";
 
   public Image myRead(String filePath) {
     FileInputStream file;
     try {
       file = new FileInputStream(filePath);
     } catch (FileNotFoundException e) {
-      System.out.println(e);
+      erromsg = e.toString();
       return (Image) null;
     }
     // Get file by the filePath
@@ -117,12 +117,12 @@ public class ImplementImageIO implements IImageIO {
         image = Toolkit.getDefaultToolkit().createImage(new MemoryImageSource(width, height, rgbaData, 0, width));
       }
     } catch (IOException e) {
-      System.out.println(e);
+      erromsg = e.toString();
     }
     try {
       file.close();
     } catch (IOException e) {
-      System.out.println(e);
+      erromsg = e.toString();
     }
     return image;
   }
@@ -138,7 +138,7 @@ public class ImplementImageIO implements IImageIO {
       File file = new File(filePath + ".bmp");
       ImageIO.write(bi, "bmp", file);
     } catch (IOException e) {
-      System.out.println(e);
+      erromsg = e.toString();
     }
 
     return image;

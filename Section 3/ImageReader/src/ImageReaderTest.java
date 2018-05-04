@@ -14,7 +14,6 @@ public class ImageReaderTest {
 
   private IImageIO imageioer;
   private IImageProcessor processor;
-  private byte originBytes[], compareBytes[];
   private static final String TESTBMP = "../test/1.bmp";
 
   static boolean pixelEqual(BufferedImage ori, BufferedImage tar) {
