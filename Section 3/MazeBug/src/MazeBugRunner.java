@@ -4,6 +4,7 @@ import info.gridworld.grid.Location;
 import info.gridworld.grid.UnboundedGrid;
 import info.gridworld.actor.Rock;
 import java.awt.Color;
+import info.gridworld.maze.*;
 
 /**
  * This class runs a world that contains maze bugs. <br />
