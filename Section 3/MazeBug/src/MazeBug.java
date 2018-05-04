@@ -20,15 +20,15 @@ import javax.swing.JOptionPane;
 public class MazeBug extends Bug {
 	private static final int MAX_MAP_SIZE = 1000;
 
-	public Location next; // Next step's location
-	public boolean isEnd = false; 
+	private Location next; // Next step's location
+	private boolean isEnd = false; 
 	public Stack<Location> crossLocation = new Stack<Location>();
 	boolean isVisited[][];
 
 	private int counters[] = new int[4];
 	
-	public Integer stepCount = 0;
-	boolean hasShown = false;//final message has been shown
+	private Integer stepCount = 0;
+	private boolean hasShown = false;//final message has been shown
 
 	/**
 	 * Constructs a box bug that traces a square of a given side length
@@ -89,8 +89,9 @@ public class MazeBug extends Bug {
 	 */
 	public ArrayList<Location> getValid(Location loc) {
 		Grid<Actor> gr = getGrid();
-		if (gr == null)
+		if (gr == null) {
 			return null;
+		}
 		ArrayList<Location> valid = new ArrayList<Location>();
 		Location location = getLocation(), target;
 		int row, col;
@@ -142,8 +143,9 @@ public class MazeBug extends Bug {
 	 */
 	public void move() {
 		Grid<Actor> gr = getGrid();
-		if (gr == null)
+		if (gr == null) {
 			return;
+		}
 		Location loc = getLocation();
 
 		if (gr.isValid(next)) {
