@@ -68,17 +68,31 @@ public class ImageReaderTest {
     // Is every pixel the same?
   }
 
-  @Test
-  public void channelRTest() throws IOException, FileNotFoundException {
+  private boolean testImages(String target, int type) throws IOException, FileNotFoundException {
     Image image = null;
 
     image = imageioer.myRead(TESTBMP);
 
-    image = processor.showChanelR(image);
+    switch(type) {
+      case 0:
+        image = processor.showChanelR(image);
+      break;
+      case 1:
+        image = processor.showChanelG(image);
+      break;
+      case 2:
+        image = processor.showChanelB(image);
+      break;
+      case 3:
+        image = processor.showGray(image);
+      break;
+      default:
+      break;
+    }
 
     FileInputStream file = null;
 
-    file = new FileInputStream("../test/goal/1_red_goal.bmp");
+    file = new FileInputStream(target);
 
     BufferedImage oriImage = null;
 
@@ -87,87 +101,29 @@ public class ImageReaderTest {
     BufferedImage tarImage = new BufferedImage(image.getWidth(null), image.getHeight(null), BufferedImage.TYPE_INT_BGR);
 
     tarImage.getGraphics().drawImage(image, 0, 0, image.getWidth(null), image.getHeight(null), null);
+  
+    return (oriImage.getHeight() == tarImage.getHeight() && oriImage.getWidth() == tarImage.getWidth() &&
+      pixelEqual(oriImage, tarImage));
+  
+  }
 
-    assertEquals(oriImage.getHeight(), tarImage.getHeight());
-    assertEquals(oriImage.getWidth(), tarImage.getWidth());
-
-    assertEquals(pixelEqual(oriImage, tarImage), true);
+  @Test
+  public void channelRTest() throws IOException, FileNotFoundException {  
+    assertEquals(testImages("../test/goal/1_red_goal.bmp", 0), true);
   }
 
   @Test
   public void channelGTest() throws IOException, FileNotFoundException {
-    Image image = null;
-
-    image = imageioer.myRead(TESTBMP);
-
-    image = processor.showChanelG(image);
-
-    FileInputStream file = null;
-
-    file = new FileInputStream("../test/goal/1_green_goal.bmp");
-
-    BufferedImage oriImage = null;
-
-    oriImage = ImageIO.read(file);
-
-    BufferedImage tarImage = new BufferedImage(image.getWidth(null), image.getHeight(null), BufferedImage.TYPE_INT_BGR);
-
-    tarImage.getGraphics().drawImage(image, 0, 0, image.getWidth(null), image.getHeight(null), null);
-
-    assertEquals(oriImage.getHeight(), tarImage.getHeight());
-    assertEquals(oriImage.getWidth(), tarImage.getWidth());
-
-    assertEquals(pixelEqual(oriImage, tarImage), true);
+    assertEquals(testImages("../test/goal/1_green_goal.bmp", 1), true);
   }
 
   @Test
   public void channelBTest() throws IOException, FileNotFoundException {
-    Image image = null;
-
-    image = imageioer.myRead(TESTBMP);
-
-    image = processor.showChanelB(image);
-
-    FileInputStream file = null;
-    file = new FileInputStream("../test/goal/1_blue_goal.bmp");
-
-    BufferedImage oriImage = null;
-
-    oriImage = ImageIO.read(file);
-
-    BufferedImage tarImage = new BufferedImage(image.getWidth(null), image.getHeight(null), BufferedImage.TYPE_INT_BGR);
-
-    tarImage.getGraphics().drawImage(image, 0, 0, image.getWidth(null), image.getHeight(null), null);
-
-    assertEquals(oriImage.getHeight(), tarImage.getHeight());
-    assertEquals(oriImage.getWidth(), tarImage.getWidth());
-
-    assertEquals(pixelEqual(oriImage, tarImage), true);
+    assertEquals(testImages("../test/goal/1_blue_goal.bmp", 2), true);
   }
 
   @Test
   public void grayTest() throws IOException, FileNotFoundException {
-    Image image = null;
-
-    image = imageioer.myRead(TESTBMP);
-
-    image = processor.showGray(image);
-
-    FileInputStream file = null;
-
-    file = new FileInputStream("../test/goal/1_gray_goal.bmp");
-
-    BufferedImage oriImage = null;
-
-    oriImage = ImageIO.read(file);
-
-    BufferedImage tarImage = new BufferedImage(image.getWidth(null), image.getHeight(null), BufferedImage.TYPE_INT_BGR);
-
-    tarImage.getGraphics().drawImage(image, 0, 0, image.getWidth(null), image.getHeight(null), null);
-
-    assertEquals(oriImage.getHeight(), tarImage.getHeight());
-    assertEquals(oriImage.getWidth(), tarImage.getWidth());
-
-    assertEquals(pixelEqual(oriImage, tarImage), true);
+    assertEquals(testImages("../test/goal/1_gray_goal.bmp", 3), true);
   }
 }
