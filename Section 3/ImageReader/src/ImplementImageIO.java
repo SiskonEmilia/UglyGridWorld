@@ -8,6 +8,7 @@ import java.awt.Toolkit;
 import java.awt.image.MemoryImageSource;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
+import java.io.Console;
 // Import Components
 
 /*
@@ -23,8 +24,6 @@ public class ImplementImageIO implements IImageIO {
   private static final int BM_LENGTH_TWO = 2;
   private static final int BM_LENGTH_FOUR = 4;
 
-  private static final int BM_SINGLE_COLOR = 1;
-  private static final int BM_SIXTEEN_COLOR = 4;
   private static final int BM_TWOFIVESIC_COLOR = 8;
   private static final int BM_TRUE_COLOR = 24;
 
@@ -33,7 +32,7 @@ public class ImplementImageIO implements IImageIO {
     try {
       file = new FileInputStream(filePath);
     } catch (FileNotFoundException e) {
-      e.printStackTrace();
+      System.out.println(e);
       return (Image) null;
     }
     // Get file by the filePath
@@ -118,12 +117,12 @@ public class ImplementImageIO implements IImageIO {
         image = Toolkit.getDefaultToolkit().createImage(new MemoryImageSource(width, height, rgbaData, 0, width));
       }
     } catch (IOException e) {
-      e.printStackTrace();
+      System.out.println(e);
     }
     try {
       file.close();
     } catch (IOException e) {
-      e.printStackTrace();
+      System.out.println(e);
     }
     return image;
   }
@@ -139,7 +138,7 @@ public class ImplementImageIO implements IImageIO {
       File file = new File(filePath + ".bmp");
       ImageIO.write(bi, "bmp", file);
     } catch (IOException e) {
-      e.printStackTrace();
+      System.out.println(e);
     }
 
     return image;

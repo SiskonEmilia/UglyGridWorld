@@ -8,4 +8,6 @@ public class ImageReaderRunner {
         IImageProcessor processor = new ImplementImageProcessor();
         Runner.run(imageioer, processor);
     }
+
+    private ImageReaderRunner() {}
 }
