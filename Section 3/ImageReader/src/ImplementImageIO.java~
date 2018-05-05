@@ -95,7 +95,6 @@ public class ImplementImageIO implements IImageIO {
           }
           oriIndex += span;
         }
-	// Read rgb data from bytes of file
 
         image = Toolkit.getDefaultToolkit().createImage(new MemoryImageSource(width, height, rgbaData, 0, width));
       } else if (bitCount == BM_TWOFIVESIC_COLOR) {
@@ -119,33 +118,27 @@ public class ImplementImageIO implements IImageIO {
       }
     } catch (IOException e) {
       erromsg = e.toString();
-	// save the error message
     }
     try {
       file.close();
     } catch (IOException e) {
       erromsg = e.toString();
-	// save the error message
     }
     return image;
   }
 
   public Image myWrite(Image image, String filePath) {
     int height = image.getHeight(null), width = image.getWidth(null);
-	// Get size
     int fileType = BufferedImage.TYPE_3BYTE_BGR;
-	// Set true color
 
     BufferedImage bi = new BufferedImage(width, height, fileType);
     bi.getGraphics().drawImage(image, 0, 0, null);
-	// Convert
 
     try {
       File file = new File(filePath + ".bmp");
       ImageIO.write(bi, "bmp", file);
     } catch (IOException e) {
       erromsg = e.toString();
-	// save the error message
     }
 
     return image;
