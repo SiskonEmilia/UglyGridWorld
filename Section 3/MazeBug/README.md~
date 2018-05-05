@@ -1,0 +1,11 @@
+# MazeBug
+
+## Usage
+
+Use command below to execute this program:
+
+```bash
+cd src
+chmod +x run.sh
+run.sh
+```
