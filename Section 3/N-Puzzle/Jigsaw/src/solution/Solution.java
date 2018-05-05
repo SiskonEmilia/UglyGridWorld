@@ -1,5 +1,6 @@
 package solution;
 
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -37,14 +38,19 @@ public class Solution extends Jigsaw {
 	 * @return 搜索成功时为true,失败为false
 	 */
 	public boolean BFSearch(JigsawNode bNode, JigsawNode eNode) {
-		Queue<JigsawNode> open = new LinkedList<JigsawNode>(), close = new LinkedList<JigsawNode>();
+		Queue<JigsawNode> open = new LinkedList<JigsawNode>();
+		HashSet<JigsawNode> openSearch = new HashSet<JigsawNode>(),
+			close = new HashSet<JigsawNode>();
 		open.offer(bNode);
+		openSearch.add(bNode);
 		while (!open.isEmpty()) {
 			JigsawNode node = open.poll();
+			openSearch.remove(node);
 			
 			if (node.equals(eNode)) {
 				this.currentJNode = node;
 				getPath();
+				// System.out.println(getSolutionPath());
 				return true;
 			}
 
@@ -53,8 +59,9 @@ public class Solution extends Jigsaw {
 			for (int i = 0; i < 4; ++i) {
 				JigsawNode newNode = new JigsawNode(node);
 				if (newNode.move(i)) {
-					if (!close.contains(newNode) && !open.contains(newNode)) {
-						open.add(newNode);
+					if (!close.contains(newNode) && !openSearch.contains(newNode)) {
+						open.offer(newNode);
+						openSearch.add(newNode);
 					}
 				}
 			}
